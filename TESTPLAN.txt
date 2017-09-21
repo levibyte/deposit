@@ -1,0 +1,89 @@
+Following 2 test-cases are availble for the task
+
+******************
+A.Selenium Test
+******************
+	Descrtipion:
+		Major aim for the test-case is to test webpage UI , user interaction & validators.
+
+	Dependcies: 
+		JUnit, Selenium, Chrome-driver
+
+	Todo(s): 
+		Curretnly only chrome-driver is being used, but it is can be implemnted
+		as template function, so any driver-could be used
+
+	Found Bugs:
+		1. Password limitiation to 6 chars doesn't work
+		
+	TestPoints:
+			//Case1
+			//		what: create valid user with rand username and email
+			//  	expected: page title change to new user
+			//Case3
+			//		what: click on submit with duplicate username
+			//  	expected: page title change to remains the same and appropriate validator error message
+			//Case4
+			//		what: click on submit with duplicate email
+			//  	expected: page title change to remains the same and appropriate validator error message	  
+			//Case5
+			//		what: click on submit when password and password confirmation doesn't mach
+			//  	expected: page title change to remains the same and appropriate validator error message	     
+			//Case6
+			//		what: check validators are empty on page load
+			//Case7
+			//		what: dummy pressing submit on first load
+			//		expected: all validators should activate with message "required".
+			//Case8
+			//		what: try mallformed email and hit submit
+			//		expected: page title the same and email.error validator to be "invalid email address"
+			//Case9
+			//		what: try 4 sized string as password and hit submit 
+			//		expected: page title remains the same and password validator to be "?"
+
+
+******************
+B.Rest Test
+******************
+
+	Descrtipion:
+		test-case for testing web page RESTfullness.
+
+	Dependcies: 
+		JUnit, RestAssured
+
+	Found Bugs:
+		1. can't POST with json
+		2. POST redirects in any case
+		3. DEL doens't return json
+		
+	TestPoints:
+			//Case0 
+			//		what: execute POST users/save.
+			//  	expected: code 302
+
+			//Case1 
+			//		what: execute GET users/all.
+			//  	expected: code 200
+
+			//Case2
+			//		what: execute GET users/all.
+			//  	expected: 
+			//				1 . code 200 
+			//				2   returns JSON
+			//				3   recently created user data in json
+
+			//Case3
+			//		what: execute GET users/all.
+			//  	expected: 
+			//				1 . code 200 
+			//				3   return body is empty ( no parsers for)
+
+			//Case4
+			//		what: double execute DEL users/all.
+			//  	expected: 200 status code two times 
+
+			//Case5
+			//		what: execute DEL to users.
+			//  	expected: 404 status code  
+	

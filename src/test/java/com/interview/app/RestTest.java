@@ -108,7 +108,7 @@ package com.interview.app;
 		
 		//Case5
 		//		what: execute DEL to users.
-		//  	expected: 500 status code  
+		//  	expected: 404 status code  
 		@Test
 		public void REST_tryDeleteOneUser() {
 				given().when().delete("/user").then().statusCode(404);

@@ -197,7 +197,7 @@ package com.interview.app;
 		
 		
 		///BUG password length validity (doesn't work.)
-		//Case8
+		//Case9
 		//		what: try 4 sized string as password and hit submit 
 		//		expected: page title remains the same and password validator to be "?"
 		@Test
