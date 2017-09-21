@@ -20,6 +20,7 @@ package com.interview.app;
 			public static String email;
 			public static String baseuri;
 
+		//FIXME move to common place	
 		public static String rand_str() {
 				String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 				StringBuilder salt = new StringBuilder();
@@ -51,6 +52,7 @@ package com.interview.app;
 			
 		}
 
+		//FIXME could be moved to contructor
 		@BeforeClass
 		public static void setup() throws Exception{
 			//com.jayway.restassured.RestAssured.baseURI  = baseuri;
