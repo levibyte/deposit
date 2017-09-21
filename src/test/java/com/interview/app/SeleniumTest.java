@@ -15,10 +15,10 @@ package com.interview.app;
 
 	public class SeleniumTest {
 
-			public static WebDriver driver;
-			public static String username;
-			public static String email;
-			public static String baseuri;
+		public static WebDriver driver;
+		public static String username;
+		public static String email;
+		public static String baseuri;
 
 		//FIXME move to common place	
 		public static String rand_str() {
@@ -34,6 +34,9 @@ package com.interview.app;
 		}
 
 
+		//Case2
+		//		what: create valid user with rand username and email
+		//  	expected: page title change to new user
 		public static void createRandValidUniqueUser() throws Exception{
 
 			driver.get(baseuri);
@@ -67,10 +70,10 @@ package com.interview.app;
 			createRandValidUniqueUser();
 		}
 
-		
 
-
-	//*  
+		//Case3
+		//		what: click on submit with duplicate username
+		//  	expected: page title change to remains the same and appropriate validator error message
 		@Test
 		public void tryDuplicateUsername() throws Exception{
 
@@ -89,7 +92,10 @@ package com.interview.app;
 
 		}
 	  
-		
+
+		//Case4
+		//		what: click on submit with duplicate email
+		//  	expected: page title change to remains the same and appropriate validator error message	  
 		@Test
 		public void tryDuplicateEmail() throws Exception{
 			
@@ -110,7 +116,9 @@ package com.interview.app;
 
 	  
 
-	   
+		//Case5
+		//		what: click on submit when password and password confirmation doesn't mach
+		//  	expected: page title change to remains the same and appropriate validator error message	     
 		@Test
 		public void tryPasswordAndConfirmPasswordMatchValidation() throws Exception{
 
@@ -131,6 +139,8 @@ package com.interview.app;
 
 		}
 
+		//Case6
+		//		what: check validators are empty on page load
 		@Test
 		public void initalLooksOk() throws Exception{
 
@@ -144,7 +154,9 @@ package com.interview.app;
 
 		}
 
-		// CASE2 pressing submit should activate validators 
+		//Case7
+		//		what: dummy pressing submit on first load
+		//		expected: all validators should activate with message "required".
 		@Test
 		public void dummySubmitValidator() throws Exception{
 
@@ -157,6 +169,10 @@ package com.interview.app;
 			Assert.assertEquals(driver.findElement(By.xpath("//*[@id='user.confirmationPassword.error']")).getText(),"");
 		}
 
+
+		//Case8
+		//		what: try mallformed email and hit submit
+		//		expected: page title the same and email.error validator to be "invalid email address"
 		
 		@Test
 		public void tryEmailValidation() throws Exception{
@@ -180,7 +196,10 @@ package com.interview.app;
 		}
 		
 		
-		///CASE , BUG password should be 6 chars, doesn't work.
+		///BUG password length validity (doesn't work.)
+		//Case8
+		//		what: try 4 sized string as password and hit submit 
+		//		expected: page title remains the same and password validator to be "?"
 		@Test
 		public void tryPasswordLengthValidation() throws Exception{
 
